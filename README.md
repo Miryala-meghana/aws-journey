@@ -9,7 +9,7 @@ This repo tracks what I learn each day: concepts covered, hands-on exercises, us
 ## Structure
 
 ```
-aws-30-day-journey/
+aws-journey/
 ├── README.md          # this file — overview and progress tracker
 └── days/
     ├── day-00.md       # kickoff / setup notes
