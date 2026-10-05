@@ -21,16 +21,21 @@ aws-journey/
 Each daily file follows a simple template:
 
 ```markdown
-# Day N - YYYY-MM-DD
+# Day N - Topic Title
+
+Source: (course/video/article name)
 
 ## Topics covered
 -
 
 ## What I learned
--
+(one sub-section per topic, written as a short explanation — the actual notes)
 
 ## Hands-on / labs
 -
+
+## Interview Q&A quick revision
+(short Q&A pairs for fast revision before interviews)
 
 ## Questions / things to revisit
 -
@@ -39,11 +44,14 @@ Each daily file follows a simple template:
 -
 ```
 
+The intent is for `days/` to double as an **interview-prep book**: each file should stand on its own as revision material, not just a log entry — explain concepts briefly, include tables/comparisons where useful, and end with a quick Q&A recap.
+
 ## Progress tracker
 
 | Day | Date | Topic(s) | Notes |
 |-----|------|----------|-------|
 | 0   |      | Setup & goals | |
+| 1   |      | What is Cloud, Public vs Private Cloud, Why AWS, Create AWS account | [day-01](days/day-01.md) |
 
 ## How this repo is maintained
 
