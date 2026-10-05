@@ -1,0 +1,17 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# AWS credentials / secrets - never commit these
+.aws/
+*.pem
+*.ppk
+credentials
+credentials.csv
+*_accessKeys.csv
+.env
+.env.*
