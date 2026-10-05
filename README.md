@@ -1,6 +1,6 @@
 # AWS 30-Day Learning Journey
 
-A daily log of my journey learning AWS from scratch — Day 0 to Day 30.
+A daily log of my journey learning AWS from scratch — Day 1 to Day 30.
 
 ## About
 
@@ -12,7 +12,6 @@ This repo tracks what I learn each day: concepts covered, hands-on exercises, us
 aws-journey/
 ├── README.md          # this file — overview and progress tracker
 └── days/
-    ├── day-00.md       # kickoff / setup notes
     ├── day-01.md
     ├── day-02.md
     └── ...
@@ -22,8 +21,6 @@ Each daily file follows a simple template:
 
 ```markdown
 # Day N - Topic Title
-
-Source: (course/video/article name)
 
 ## Topics covered
 -
@@ -36,12 +33,6 @@ Source: (course/video/article name)
 
 ## Interview Q&A quick revision
 (short Q&A pairs for fast revision before interviews)
-
-## Questions / things to revisit
--
-
-## Resources
--
 ```
 
 The intent is for `days/` to double as an **interview-prep book**: each file should stand on its own as revision material, not just a log entry — explain concepts briefly, include tables/comparisons where useful, and end with a quick Q&A recap.
@@ -50,7 +41,6 @@ The intent is for `days/` to double as an **interview-prep book**: each file sho
 
 | Day | Date | Topic(s) | Notes |
 |-----|------|----------|-------|
-| 0   |      | Setup & goals | |
 | 1   |      | What is Cloud, Public vs Private Cloud, Why AWS, Create AWS account | [day-01](days/day-01.md) |
 
 ## How this repo is maintained

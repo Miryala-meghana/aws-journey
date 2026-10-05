@@ -1,7 +1,5 @@
 # Day 1 - Introduction to AWS
 
-Source: "Day-1 | Introduction to AWS | What is Public Cloud? | Create an AWS Account" — Abhishek Veeramalla
-
 ## Topics covered
 - What is Cloud?
 - Public vs Private Cloud
@@ -78,9 +76,3 @@ Steps covered:
 - **Q: Why is AWS preferred over other providers?** Market maturity, breadth/depth of services, largest global infrastructure footprint, strongest ecosystem and community support.
 - **Q: What is cloud repatriation and why does it happen?** Moving workloads back from public cloud to on-prem/private cloud, usually driven by cost at scale, compliance, or latency requirements.
 - **Q: Should you use the AWS root account for everyday tasks?** No — create an IAM user with least-privilege permissions and enable MFA on root; use root only for account-level tasks.
-
-## Questions / things to revisit
--
-
-## Resources
-- YouTube: "Day-1 | Introduction to AWS | What is Public Cloud? | Create an AWS Account" — Abhishek Veeramalla
