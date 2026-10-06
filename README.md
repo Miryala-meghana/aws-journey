@@ -42,6 +42,7 @@ The intent is for `days/` to double as an **interview-prep book**: each file sho
 | Day | Date | Topic(s) | Notes |
 |-----|------|----------|-------|
 | 1   |      | What is Cloud, Public vs Private Cloud, Why AWS, Create AWS account | [day-01](days/day-01.md) |
+| 2   |      | IAM components, Authentication vs Authorization, IAM users/groups/policies | [day-02](days/day-02.md) |
 
 ## How this repo is maintained
 
