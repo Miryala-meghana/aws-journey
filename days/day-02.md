@@ -64,7 +64,6 @@ Authentication happens first (prove identity), authorization happens next (check
 ## Hands-on / labs
 - Created an IAM user (`meg_test`) via the IAM console
 - Attached `AmazonS3FullAccess` directly to the user and tested S3 bucket listing
-- Troubleshot a "you don't have permissions to list buckets" error — checked permissions boundary, group policies, and console session cache as possible causes
 - Created an IAM group and attached a managed policy to it:
   1. IAM console → **IAM user groups** → **Create group**
   2. Enter a group name (e.g., `S3-Practice-Group`)
