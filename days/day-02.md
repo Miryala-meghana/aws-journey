@@ -62,9 +62,20 @@ Authentication happens first (prove identity), authorization happens next (check
 - A user can belong to multiple groups and inherits the combined permissions of all of them.
 
 ## Hands-on / labs
-- Created an IAM user via the IAM console
-- Created an IAM group and attached a managed policy to it
-- Added the new user to the group and verified inherited permissions
+- Created an IAM user (`meg_test`) via the IAM console
+- Attached `AmazonS3FullAccess` directly to the user and tested S3 bucket listing
+- Troubleshot a "you don't have permissions to list buckets" error — checked permissions boundary, group policies, and console session cache as possible causes
+- Created an IAM group and attached a managed policy to it:
+  1. IAM console → **IAM user groups** → **Create group**
+  2. Enter a group name (e.g., `S3-Practice-Group`)
+  3. Under **Attach permissions policies**, select the desired policy (e.g., `AmazonS3FullAccess`)
+  4. Click **Create user group**
+- Added the user to the group:
+  1. Open the group → **Users** tab → **Add users**
+  2. Select `meg_test` → **Add users**
+  (or from the user's page: **Groups** tab → **Add user to groups** → select group)
+- Verified on the user's **Permissions** tab that the policy now shows **"Attached via"** the group name instead of "Directly"
+- Removed the policy that was attached directly to the user, so all permissions flow through the group (cleaner, matches the least-privilege/group-based pattern)
 
 ## Interview Q&A quick revision
 - **Q: What is IAM and is it region-specific?** AWS's service for managing identities and permissions; it is global, not tied to any region.
