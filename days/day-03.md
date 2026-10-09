@@ -74,10 +74,61 @@ Basic flow for a simple app:
 6. Access the app via `http://<public-ip>:<port>`
 
 ## Hands-on / labs
-- Launched a `t2.micro` EC2 instance (Amazon Linux) using the free tier
-- Created a key pair and connected via SSH from the terminal
-- Configured a security group to allow SSH (22) and a custom app port
-- Installed a runtime and deployed a simple test application, accessed it via the instance's public IP
+
+### 1. Launched a `t3.micro` EC2 instance (Amazon Linux) using the free tier
+1. AWS Console → EC2 → **Launch instance**
+2. **Name**: `test-servermeg`
+3. **AMI**: Amazon Linux 2023 (free tier eligible)
+4. **Instance type**: `t3.micro` (free tier eligible)
+5. **Key pair**: Create new key pair → name it `test` → key type RSA → format `.pem` → **Create key pair** (downloads as `test.pem`, save it — can't be re-downloaded)
+6. **Network settings** → Edit:
+   - Auto-assign public IP: Enable
+   - Create security group with: SSH (22) from My IP, and Custom TCP (8080) from Anywhere (0.0.0.0/0)
+7. Storage: leave default (8 GB gp3)
+8. **Launch instance**, wait for status "Running" with a public IPv4 assigned
+
+### 2. Created a key pair and connected via SSH from the terminal
+```powershell
+cd D:\path\to\downloaded\key
+ssh -i "test.pem" ec2-user@<instance-public-ip>
+```
+If Windows complains the key file permissions are too open:
+```powershell
+icacls "test.pem" /inheritance:r
+icacls "test.pem" /grant:r "$($env:USERNAME):(R)"
+```
+Type `yes` when prompted about host authenticity — prompt changes to `[ec2-user@ip-... ~]$` once connected.
+
+### 3. Configured a security group to allow SSH (22) and a custom app port
+1. EC2 → Instances → select instance → **Security** tab → click the security group
+2. **Inbound rules** → **Edit inbound rules**
+3. Ensure: SSH (22) from My IP, and Custom TCP (8080, or app's port) from 0.0.0.0/0
+4. **Save rules**
+
+### 4. Installed a runtime and deployed a simple test application
+Example — a tiny Python web server:
+```bash
+sudo yum update -y
+sudo yum install -y python3
+
+mkdir myapp && cd myapp
+cat > app.py << 'EOF'
+import http.server, socketserver
+PORT = 8080
+Handler = http.server.SimpleHTTPRequestHandler
+with socketserver.TCPServer(("", PORT), Handler) as httpd:
+    print("Serving on port", PORT)
+    httpd.serve_forever()
+EOF
+
+echo "<h1>Hello from EC2!</h1>" > index.html
+
+# Run in background so it survives disconnecting
+nohup python3 app.py > app.log 2>&1 &
+```
+Accessed via browser at `http://<instance-public-ip>:8080`.
+
+**Cleanup reminder:** stop/terminate the instance (EC2 → Instances → Instance state → Stop/Terminate) when done, to avoid charges even on free tier.
 
 ## Interview Q&A quick revision
 - **Q: What is EC2 in one line?** AWS's service for renting resizable virtual servers (compute) in the cloud, billed by usage.
