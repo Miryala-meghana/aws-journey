@@ -87,6 +87,8 @@ Basic flow for a simple app:
 7. Storage: leave default (8 GB gp3)
 8. **Launch instance**, wait for status "Running" with a public IPv4 assigned
 
+Instance ID: `i-0690b8cc57f719ab8`
+
 ### 2. Created a key pair and connected via SSH from the terminal
 ```powershell
 cd D:\path\to\downloaded\key
@@ -104,29 +106,6 @@ Type `yes` when prompted about host authenticity — prompt changes to `[ec2-use
 2. **Inbound rules** → **Edit inbound rules**
 3. Ensure: SSH (22) from My IP, and Custom TCP (8080, or app's port) from 0.0.0.0/0
 4. **Save rules**
-
-### 4. Installed a runtime and deployed a simple test application
-Example — a tiny Python web server:
-```bash
-sudo yum update -y
-sudo yum install -y python3
-
-mkdir myapp && cd myapp
-cat > app.py << 'EOF'
-import http.server, socketserver
-PORT = 8080
-Handler = http.server.SimpleHTTPRequestHandler
-with socketserver.TCPServer(("", PORT), Handler) as httpd:
-    print("Serving on port", PORT)
-    httpd.serve_forever()
-EOF
-
-echo "<h1>Hello from EC2!</h1>" > index.html
-
-# Run in background so it survives disconnecting
-nohup python3 app.py > app.log 2>&1 &
-```
-Accessed via browser at `http://<instance-public-ip>:8080`.
 
 **Cleanup reminder:** stop/terminate the instance (EC2 → Instances → Instance state → Stop/Terminate) when done, to avoid charges even on free tier.
 
