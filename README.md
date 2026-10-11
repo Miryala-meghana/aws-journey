@@ -35,7 +35,7 @@ Each daily file follows a simple template:
 (short Q&A pairs for fast revision before interviews)
 ```
 
-The intent is for `days/` to double as an **interview-prep book**: each file should stand on its own as revision material, not just a log entry — explain concepts briefly, include tables/comparisons where useful, and end with a quick Q&A recap.
+The intent is for `days/` to double as an **interview-prep book**: each file should stand on its own as revision material, not just a log entry — explain concepts briefly, include tables/comparisons where useful, and end with a quick Q&A recap. If a day has no hands-on work, omit the "Hands-on / labs" section entirely rather than leaving it empty.
 
 ## Progress tracker
 

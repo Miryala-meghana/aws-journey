@@ -38,9 +38,6 @@ A **VPC (Virtual Private Cloud)** is your own logically isolated, private networ
 5. If the web server (public subnet) needs to talk to a database (private subnet), that traffic stays inside the VPC — it's routed directly via the VPC's internal routing, never touching the Internet Gateway.
 6. If the private-subnet database needs outbound internet access (e.g., for patching), its route table sends that traffic to the **NAT Gateway**, which sits in the public subnet and forwards it to the Internet Gateway — so the response can come back, but nothing from the internet can initiate a connection directly to the database.
 
-## Hands-on / labs
--
-
 ## Interview Q&A quick revision
 - **Q: What is a VPC in one line?** A logically isolated, private virtual network within AWS where you control IP ranges, subnets, and routing.
 - **Q: Difference between a public and private subnet?** A public subnet has a route to an Internet Gateway (resources can be internet-reachable); a private subnet has no direct internet route.
